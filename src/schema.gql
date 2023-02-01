@@ -1,0 +1,40 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+input CreateJobDto {
+  applicationDate: DateTime!
+  company: String!
+  position: String!
+  status: String = "APPLIED"
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+type Job {
+  _id: String!
+
+  """Date application was submitted"""
+  applicationDate: DateTime!
+
+  """Company Name"""
+  company: String!
+
+  """Position"""
+  position: String!
+
+  """Current status of application"""
+  status: String
+}
+
+type Mutation {
+  createJob(createJobInput: CreateJobDto!): Job!
+}
+
+type Query {
+  job(id: String!): Job!
+  jobs: [Job!]!
+}
